@@ -13,7 +13,6 @@
 #include "cerrno"
 
 static std::string readShader(const char *fileName);
-static GLuint createShader(unsigned int type, const char* shaderSource);
 
 class Shader {
 
@@ -23,6 +22,11 @@ public:
 
     void activateShader();
     void deleteShader();
+
+    void compileErrors(unsigned int shader, const char *type);
+
+private:
+    GLuint createShader(unsigned int type, const char* shaderSource);
 };
 
 
